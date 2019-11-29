@@ -39,11 +39,11 @@
                 (.sendAsync
                  (.. (HttpRequest/newBuilder (java.net.URI. url)) GET build)
                  (HttpResponse$BodyHandlers/fromLineSubscriber subscriber)))]
-    (go
+    (future
       (try
         (.join res)
-        (close! port)
         (catch Throwable t
-          (put! port {:kind :error :content t})
+          (put! port {:kind :error :content t}))
+        (finally
           (close! port))))
     port))
