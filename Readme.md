@@ -8,7 +8,7 @@ interface for consuming events.
 ## Install
 
 ```clj
-cjohansen/clj-event-source {:mvn/version "2019.11.29"}
+cjohansen/clj-event-source {:mvn/version "2019.11.30"}
 ```
 
 ## Requirements
