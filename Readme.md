@@ -11,7 +11,12 @@ interface for consuming events.
 cjohansen/clj-event-source {:mvn/version "2019.11.29"}
 ```
 
-## Using with `core.async`
+## Requirements
+
+This library is implemented on top of `java.net.http.HttpClient`, which requires
+JDK 11.
+
+## Documentation
 
 `clj-event-source` allows you to consume events from an event stream over a
 `core.async` channel. The vals put on the channel will be maps with:
