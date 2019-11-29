@@ -17,7 +17,7 @@
                    (println "Message with event" id event data)))
         (recur))
       (println "Event source disconnected")))
-  (Thread/sleep 60000)
-  (close! event-stream))
-
+  (future
+    (Thread/sleep 60000)
+    (close! event-stream)))
   )
