@@ -10,6 +10,7 @@
     (if-let [msg (<! event-stream)]
       (do
         (case (:kind msg)
+          :meta (println "META" (:content msg))
           :error (println "Encountered error" (:content msg))
           :message (let [{:keys [id data]} (:content msg)]
                      (println "Message without event" id data))
@@ -20,4 +21,5 @@
   (future
     (Thread/sleep 60000)
     (close! event-stream)))
+
   )
